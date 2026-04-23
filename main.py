@@ -1,4 +1,4 @@
-from lectura_datos import cargar_datos  # Importa la función
+from lectura_datos import *  # Importa la funcion para leer y estructurar los datos desde el CSV
 from reportes import * #Importa el archivo con la logica de los reportes
 
 # Ruta del archivo
@@ -35,9 +35,9 @@ print(promedio_por_carrera(datos))
 print("\n5. Personas que trabajan:")
 print(personas_que_trabajan(datos)) #Fin de los primeros 5 bloques correspondientes a los primeros 5 reportes
 
-# ========================= Imprimiendo reportes 6 - 10================================
+# ========================= Imprimiendo reportes 6 - 10 ================================
 print("\n" + "="*70)
-print("REPORTES 6".center(70,"-"))
+print("REPORTES 6-10".center(70,"-"))
 print("="*70)
 # Reporte 6: Promedio de ingresos
 print("\n6. Promedio de ingresos:")

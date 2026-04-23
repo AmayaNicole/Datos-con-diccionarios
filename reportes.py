@@ -83,9 +83,17 @@ def personas_que_trabajan(personas):
 
 def promedio_ingresos(personas):
     suma = 0
+    contador = 0
 
     for p in personas:
-        if p["datos_laborales"]["trabaja"]:
-            suma += p["datos_laborales"]["ingreso_mensual"]
+        if "datos_laborales" in p:
+            if p["datos_laborales"]["trabaja"]:
+                suma += p["datos_laborales"]["ingreso_mensual"]
+                contador += 1
 
-    return round(suma / personas_que_trabajan(personas), 2)
+    # Validación para evitar división entre 0
+    if contador == 0:
+        return 0
+
+    promedio = round(suma / contador, 2)
+    return promedio
