@@ -78,3 +78,14 @@ def personas_que_trabajan(personas):
             contador += 1
 
     return contador
+
+#Reporte 6: Promedio de ingresos
+
+def promedio_ingresos(personas):
+    suma = 0
+
+    for p in personas:
+        if p["datos_laborales"]["trabaja"]:
+            suma += p["datos_laborales"]["ingreso_mensual"]
+
+    return round(suma / personas_que_trabajan(personas), 2)
