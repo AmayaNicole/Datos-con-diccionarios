@@ -122,3 +122,45 @@ def personas_con_computadora(personas):
     cantidad_personas_con_computadora = len(con_computadora) 
 
     return cantidad_personas_con_computadora
+
+# Reporte 9: Promedio académico de personas que trabajan
+def promedio_personas_que_trabajan(personas):
+    suma = 0 # almacena la suma de los promedios académicos de las personas que trabajan
+    contador = 0 # contador para saber cuantas personas trabajan y asi calcular el promedio
+    for p in personas:
+        if(
+            "datos_laborales" in p and
+            p["datos_laborales"]["trabaja"] and
+            "datos_academicos" in p
+        ):
+            suma += p["datos_academicos"]["promedio"]
+            contador += 1
+
+    # Validación para evitar división entre 0   
+    if contador == 0:
+        return 0
+    # calculamos promedio
+    promedio = round(suma / contador, 2) # round para redondear el resultado a dos 
+    
+    return promedio
+
+# Reporte 10: promedio academico de personas que no tarabajan
+def promedio_personas_que_no_trabajan(personas):
+    suma = 0 # almacena la suma de los promedios académicos de las personas que no trabajan
+    contador = 0 # contador para saber cuantas personas no trabajan y asi calcular el promedio
+    for p in personas:
+        if(
+            "datos_laborales" in p and
+            not p["datos_laborales"]["trabaja"] and
+            "datos_academicos" in p
+        ):
+            suma += p["datos_academicos"]["promedio"]
+            contador += 1
+
+    # Validación para evitar división entre 0   
+    if contador == 0:
+        return 0
+    # calculamos promedio
+    promedio = round(suma / contador, 2) # round para redondear el resultado a dos decimales
+    
+    return promedio

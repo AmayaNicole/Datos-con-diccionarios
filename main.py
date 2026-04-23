@@ -51,3 +51,11 @@ print(personas_con_internet(datos))
 # Reporte 8: Cantidad de personas con computadora
 print("\n8. Cantidad de personas con computadora:")
 print(personas_con_computadora(datos))
+
+# Reporte 9: Promedio académico de personas que trabajan
+print("\n9. Promedio académico de personas que trabajan:")
+print(promedio_personas_que_trabajan(datos))
+
+# Reporte 10: promedio academico de personas que no tarabajan
+print("\n10. promedio academico de personas que no tarabajan:")
+print(promedio_personas_que_no_trabajan(datos)) # Fin de los segundos 5 bloques correspondientes a los reportes 6-10
