@@ -8,23 +8,35 @@ def cargar_datos(ruta_archivo):
         with open(ruta_archivo, mode='r', encoding='utf-8') as archivo:
             lector = csv.DictReader(archivo)
 
-            # Recorre cada fila y convertirla en diccionario
+            # Recorre cada fila y la convierte en diccionario
             for fila in lector:
                 persona = {
                     "id": int(fila["id"]),
                     "nombre": fila["nombre"],
                     "edad": int(fila["edad"]),
                     "ciudad": fila["ciudad"],
-                    "carrera": fila["carrera"],
-                    "semestre": int(fila["semestre"]),
-                    "promedio": float(fila["promedio"]),
-                    "trabaja": fila["trabaja"] == "True",
-                    "ingreso_mensual": float(fila["ingreso_mensual"]),
-                    "internet": fila["internet"] == "True",
-                    "computadora": fila["computadora"] == "True"
+
+                    # Diccionario anidado académico
+                    "datos_academicos": {
+                        "carrera": fila["carrera"],
+                        "semestre": int(fila["semestre"]),
+                        "promedio": float(fila["promedio"])
+                    },
+
+                    # Diccionario anidado laboral
+                    "datos_laborales": {
+                        "trabaja": fila["trabaja"] == "True",
+                        "ingreso_mensual": float(fila["ingreso_mensual"])
+                    },
+
+                    # Diccionario anidado tecnológico
+                    "datos_tecnologicos": {
+                        "internet": fila["internet"] == "True",
+                        "computadora": fila["computadora"] == "True"
+                    }
                 }
 
-                # Guarda cada persona en la lista
+                # Guardar cada persona en la lista
                 base_datos.append(persona)
 
     # Manejo de errores
