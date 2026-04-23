@@ -39,6 +39,11 @@ print(personas_que_trabajan(datos)) #Fin de los primeros 5 bloques correspondien
 print("\n" + "="*70)
 print("REPORTES 6-10".center(70,"-"))
 print("="*70)
+
 # Reporte 6: Promedio de ingresos
 print("\n6. Promedio de ingresos:")
 print(promedio_ingresos(datos))
+
+# Reporte 7: Cantidad de personas con internet
+print("\n7. Cantidad de personas con internet:")
+print(personas_con_internet(datos))

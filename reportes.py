@@ -97,3 +97,14 @@ def promedio_ingresos(personas):
 
     promedio = round(suma / contador, 2)
     return promedio
+
+# Reporte 7: Cantidad de personas con internet
+def personas_con_internet(personas):
+    con_internet = []
+
+    for p in personas:
+        if "datos_tecnologicos" in p and p["datos_tecnologicos"]["internet"]:
+            con_internet.append(p)
+    cantidad_personas_con_internet = len(con_internet)
+
+    return cantidad_personas_con_internet
