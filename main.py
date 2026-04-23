@@ -47,3 +47,7 @@ print(promedio_ingresos(datos))
 # Reporte 7: Cantidad de personas con internet
 print("\n7. Cantidad de personas con internet:")
 print(personas_con_internet(datos))
+
+# Reporte 8: Cantidad de personas con computadora
+print("\n8. Cantidad de personas con computadora:")
+print(personas_con_computadora(datos))

@@ -82,10 +82,12 @@ def personas_que_trabajan(personas):
 #Reporte 6: Promedio de ingresos
 
 def promedio_ingresos(personas):
-    suma = 0
-    contador = 0
+    suma = 0 #Almacena la suma total de ingresos
+    contador = 0 #Contador para saber cuantas personas trabajan y asi calcular el promedio correctamente
 
+    #Recorremos cada persona para verificar si trabaja y acumular su ingreso
     for p in personas:
+        #validamos que el diccionario laboral exista y que la persona trabaje para evitar errores
         if "datos_laborales" in p:
             if p["datos_laborales"]["trabaja"]:
                 suma += p["datos_laborales"]["ingreso_mensual"]
@@ -94,17 +96,29 @@ def promedio_ingresos(personas):
     # Validación para evitar división entre 0
     if contador == 0:
         return 0
-
-    promedio = round(suma / contador, 2)
+    # calculamos promedio
+    promedio = round(suma / contador, 2) # round para redondear el resultado a dos decimales
     return promedio
 
 # Reporte 7: Cantidad de personas con internet
 def personas_con_internet(personas):
-    con_internet = []
+    con_internet = [] #Almacena las personas que tienen internet
 
     for p in personas:
+        # forma corta de validar que el diccionario exista y que la persona tenga computadora
         if "datos_tecnologicos" in p and p["datos_tecnologicos"]["internet"]:
             con_internet.append(p)
-    cantidad_personas_con_internet = len(con_internet)
+    cantidad_personas_con_internet = len(con_internet) #len() para obtener la cantidad de personas con internet
 
     return cantidad_personas_con_internet
+
+# Reporte 8: Cantidad de personas con computadora
+def personas_con_computadora(personas):
+    con_computadora = []
+
+    for p in personas:
+        if "datos_tecnologicos" in p and p["datos_tecnologicos"]["computadora"]: 
+            con_computadora.append(p)
+    cantidad_personas_con_computadora = len(con_computadora) 
+
+    return cantidad_personas_con_computadora
