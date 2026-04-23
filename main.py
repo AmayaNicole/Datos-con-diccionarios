@@ -59,3 +59,25 @@ print(promedio_personas_que_trabajan(datos))
 # Reporte 10: promedio academico de personas que no tarabajan
 print("\n10. promedio academico de personas que no tarabajan:")
 print(promedio_personas_que_no_trabajan(datos)) # Fin de los segundos 5 bloques correspondientes a los reportes 6-10
+
+# ========================= Imprimiendo reportes 16 - 20 ================================
+print("\n" + "="*70)
+print("REPORTES 16-20".center(70,"-"))
+print("="*70)
+
+print("\n16. Relación entre ingreso y promedio académico:")
+print(relacion_ingreso_promedio(datos))
+
+print("\n17. Cantidad de personas por rango de edad:")
+print(personas_por_rango_edad(datos))
+
+print("\n18. Promedio académico por ciudad:")
+print(promedio_por_ciudad(datos))
+
+print("\n19. Porcentaje de personas que trabajan:")
+print(porcentaje_personas_que_trabajan(datos))
+
+print("\n20. Perfil promedio del encuestado:")
+perfil = perfil_promedio(datos)
+for clave, valor in perfil.items():
+    print(f"    - {clave}: {valor}")
