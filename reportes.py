@@ -4,14 +4,14 @@ def personas_por_ciudad(personas): #Definimos la funcion para recibir los datos 
     conteo = {} #Creamos un diccionario vacio para guardar resultados
 
     for p in personas:  #Recorremos cada persona de la lista
-        ciudad = p["ciudad"]  #Variable temporal
+        ciudad = p["ciudad"] 
 
-        if ciudad in conteo:  #Operador para verificar si la ciudad ya esta en el diccionario
-            conteo[ciudad] += 1  #Si existe sumamos 1
+        if ciudad in conteo:  
+            conteo[ciudad] += 1  
         else:
-            conteo[ciudad] = 1  #Si no existe se crea con valor 1
+            conteo[ciudad] = 1 
 
-    return conteo  #Se devuelve el resultado final
+    return conteo 
 
 
 #Reporte 2: Cantidad de personas por carrera
@@ -32,11 +32,11 @@ def personas_por_carrera(personas):
 
 #Reporte 3: Promedio general academico
 
-def promedio_general(personas):  #Definimos la funcion para calcular el promedio genral
-    suma = 0  #Variable acumuladora donde sumaremos los promedios
+def promedio_general(personas): 
+    suma = 0  
 
     for p in personas:
-        suma += p["datos_academicos"]["promedio"] #accedemos al promedio dentro del diccionario anidado y lo vamos sumando a la variable suma
+        suma += p["datos_academicos"]["promedio"] 
 
     promedio = suma / len(personas)  #sumamos todos los promedios  y dividimos entre la cantidad total de personas
 
@@ -46,19 +46,19 @@ def promedio_general(personas):  #Definimos la funcion para calcular el promedio
 #Reporte 4: Promedio por carrera
 
 def promedio_por_carrera(personas):
-    suma = {}  #diccionario para guardar la suma de promedios por carrera
-    conteo = {}  #diccionario para contar cuantas personas hay por carrera
+    suma = {}  
+    conteo = {}  
 
     for p in personas:
-        carrera = p["datos_academicos"]["carrera"]  #accedemos al diccionario anidado
-        promedio = p["datos_academicos"]["promedio"]  #obtenemos el promedio de esa persona
+        carrera = p["datos_academicos"]["carrera"]  
+        promedio = p["datos_academicos"]["promedio"] 
 
-        if carrera in suma:  #Operador para saber si esa carrera esta en el diccionario suma
-            suma[carrera] += promedio  #Si existe acumulamos el promedio
-            conteo[carrera] += 1  #aumentamos el contador de esa carrera
+        if carrera in suma:  
+            suma[carrera] += promedio  
+            conteo[carrera] += 1 
         else:
-            suma[carrera] = promedio #si no existe, guardamos el primer promedio
-            conteo[carrera] = 1  #inicializamos el contador en 1
+            suma[carrera] = promedio 
+            conteo[carrera] = 1  
 
     promedios = {} #un nuevo diccionario para los resulados finales
 
