@@ -165,6 +165,98 @@ def promedio_personas_que_no_trabajan(personas):
     
     return promedio
 
+
+# Reporte 11: 
+def personas_por_semestre(personas):
+    # Creamos una  diccionario para guardar los conteos
+    conteo = {}
+    # Revisamos a cada persona de la lista una por una
+    for p in personas:
+        # Sacamos el número de semestre en el que está esa persona
+        semestre = p["datos_academicos"]["semestre"]
+        # Si el semestre ya lo teníamos anotado en el diccionario, le sumamos 1
+        if semestre in conteo:
+            conteo[semestre] += 1
+        # Si es la primera vez que aparece ese semestre, lo anotamos con el número 1
+        else:
+            conteo[semestre] = 1
+    # Al final, devolvemos la cajita con todos los totales
+    return conteo
+
+# Reporte 12
+def promedio_edad_total(personas):
+    # Empezamos una suma en cero
+    suma = 0
+    # Pasamos por cada persona y vamos sumando su edad a la cuenta total
+    for p in personas:
+        suma += p["edad"]
+    # Dividimos la suma total entre el número de personas. 
+    # Usamos int() para que el resultado sea un número entero 
+    return int(suma / len(personas)) if personas else 0
+
+# Reporte 13:
+def ciudad_mas_poblada(personas):
+    conteo = {}
+    for p in personas:
+        ciudad = p["ciudad"]
+        conteo[ciudad] = conteo.get(ciudad, 0) + 1  # Luego le sumamos 1
+    
+    # Buscamos cuál es el número más grande de la lista de ciudades
+    mayor_cantidad = 0
+    ciudad_ganadora = ""
+    # Revisamos ciudad por ciudad y su total
+    for ciudad, total in conteo.items():
+        if total > mayor_cantidad:
+            mayor_cantidad = total
+            ciudad_ganadora = ciudad
+    # Devolvemos el nombre de la ciudad ganadora y cuánta gente tiene
+    return ciudad_ganadora, mayor_cantidad
+
+# Reporte 14: 
+def carrera_mejor_promedio(personas):
+    # Necesitamos dos cajitas: una para sumar notas y otra para contar cuántos alumnos hay
+    sumas = {}
+    contadores = {}
+    for p in personas:
+        carrera = p["datos_academicos"]["carrera"]
+        nota = p["datos_academicos"]["promedio"]
+        # Vamos guardando la suma de notas y el conteo de alumnos por cada carrera
+        sumas[carrera] = sumas.get(carrera, 0) + nota
+        contadores[carrera] = contadores.get(carrera, 0) + 1
+    
+    mejor_promedio = 0
+    carrera_top = ""
+    # Revisamos carrera por carrera para sacar sus promedios
+    for c in sumas:
+        # Dividimos la suma de notas entre la cantidad de alumnos de esa carrera
+        promedio = sumas[c] / contadores[c]
+        # Si este promedio es mejor que el récord anterior, lo guardamos
+        if promedio > mejor_promedio:
+            mejor_promedio = promedio
+            carrera_top = c
+    # Devolvemos la carrera y su nota final con un solo decimal
+    return carrera_top, round(mejor_promedio, 1)
+
+# Reporte 15: 
+def carrera_mas_computadoras(personas):
+    conteo = {}
+    for p in personas:
+        # Primero revisamos si tiene computadora o no
+        if p["datos_tecnologicos"]["computadora"]:
+            # Si tiene, buscamos su carrera y la contamos
+            carrera = p["datos_academicos"]["carrera"]
+            conteo[carrera] = conteo.get(carrera, 0) + 1
+            
+    # Buscamos qué carrera tuvo el conteo más alto de computadoras
+    max_compus = 0
+    carrera_win = ""
+    for carrera, total in conteo.items():
+        if total > max_compus:
+            max_compus = total
+            carrera_win = carrera
+    # Devolvemos la carrera que ganó y cuántas compus encontramos ahí
+    return carrera_win, max_compus
+
 # ==============================================================================
 # REPORTES 16 AL 20
 # ==============================================================================

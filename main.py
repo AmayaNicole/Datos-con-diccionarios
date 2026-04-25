@@ -60,6 +60,33 @@ print(promedio_personas_que_trabajan(datos))
 print("\n10. promedio academico de personas que no tarabajan:")
 print(promedio_personas_que_no_trabajan(datos)) # Fin de los segundos 5 bloques correspondientes a los reportes 6-10
 
+
+print("\n" + "="*70)
+print("REPORTES 11-15".center(70,"-"))
+print("="*70)
+
+
+# Reporte 11: Cantidad de personas por semestre
+print("\n11. Cantidad de personas por semestre:")
+print(personas_por_semestre(datos))
+
+# Reporte 12: Promedio de edad
+print("\n12. Promedio de edad total:")
+print(promedio_edad_total(datos))
+
+# Reporte 13: Ciudad con más personas
+print("\n13. Ciudad con mayor cantidad de personas:")
+print(ciudad_mas_poblada(datos))
+
+# Reporte 14: Carrera con mejor promedio
+print("\n14. Carrera con el promedio académico más alto:")
+print(carrera_mejor_promedio(datos))
+
+# Reporte 15: Carrera con más computadoras
+print("\n15. Carrera con más estudiantes que poseen computadora:")
+print(carrera_mas_computadoras(datos))
+
+
 # ========================= Imprimiendo reportes 16 - 20 ================================
 print("\n" + "="*70)
 print("REPORTES 16-20".center(70,"-"))
